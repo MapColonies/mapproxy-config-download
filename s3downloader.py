@@ -25,7 +25,7 @@ This method download object into local file system.
 try:
     if os.path.exists(os.path.dirname(destination)) is False:
         os.makedirs(os.path.dirname(destination))
-        
+
     resource = boto3.resource('s3', endpoint_url=endpoint_url,
                                 aws_access_key_id=aws_access_key_id,
                                 aws_secret_access_key=aws_secret_access_key)
