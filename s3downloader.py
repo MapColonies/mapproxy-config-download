@@ -1,21 +1,15 @@
-import logging
+from MapColoniesJSONLogger.logger import generate_logger
 import os
 import boto3
 import json
 
-log = logging.getLogger('s3_downloader')
-log.setLevel(logging.DEBUG)
-ch = logging.StreamHandler()
-# create formatter and add it to the handlers
-formatter = logging.Formatter('%(asctime)s - %(name)s - %(levelname)s - %(message)s')
-ch.setFormatter(formatter)
-# add the handlers to the logger
-log.addHandler(ch)
+log = generate_logger('s3-file-downloader', log_level='DEBUG',
+                      handlers=[{'type': 'stream', 'output': 'stderr'}, {'type': 'rotating_file', 'path': './logs.log'}])
 
-endpoint_url = os.environ.get('S3_ENDPOINT_URL', 'http://localhost:9000')
-aws_access_key_id = os.environ.get('AWS_ACCESS_KEY_ID', '')
-aws_secret_access_key = os.environ.get('AWS_SECRET_ACCESS_KEY', '')
-bucket = os.environ.get('S3_BUCKET', '')
+endpoint_url = os.environ.get('S3_ENDPOINT_URL', 'http://10.45.130.11:9000')
+aws_access_key_id = os.environ.get('AWS_ACCESS_KEY_ID', 'AKIAIOSFODNN7EXAMPLE')
+aws_secret_access_key = os.environ.get('AWS_SECRET_ACCESS_KEY', 'wJalrXUtnFEMI/K7MDENG/bPxRfiCYEXAMPLEKEY')
+bucket = os.environ.get('S3_BUCKET', 'mybucket')
 object_key = os.environ.get('S3_OBJECT_KEY', 'mapproxy.yaml')
 destination = os.environ.get('OUTPUT_DESTINATION', f'downloads/{object_key}')
 
@@ -33,4 +27,4 @@ try:
     resource.Bucket(bucket).download_file(object_key, destination)
     log.debug(f'Successfully downloaded file to: {destination}')
 except Exception as e:
-    log.error(f'Error occurred while trying download file: {e}')
+    log.debug(f'Error occurred while trying download file: {e}')
