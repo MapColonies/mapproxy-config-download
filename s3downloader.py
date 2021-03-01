@@ -6,9 +6,9 @@ import json
 log = generate_logger('s3-file-downloader', log_level='DEBUG',
                       handlers=[{'type': 'stream', 'output': 'stderr'}, {'type': 'rotating_file', 'path': './logs.log'}])
 
-endpoint_url = os.environ.get('S3_ENDPOINT_URL', 'http://10.45.130.11:9000')
-aws_access_key_id = os.environ.get('AWS_ACCESS_KEY_ID', 'AKIAIOSFODNN7EXAMPLE')
-aws_secret_access_key = os.environ.get('AWS_SECRET_ACCESS_KEY', 'wJalrXUtnFEMI/K7MDENG/bPxRfiCYEXAMPLEKEY')
+endpoint_url = os.environ.get('S3_ENDPOINT_URL', 'http://localhost:9000')
+aws_access_key_id = os.environ.get('AWS_ACCESS_KEY_ID', 'minioadmin')
+aws_secret_access_key = os.environ.get('AWS_SECRET_ACCESS_KEY', 'minioadmin')
 bucket = os.environ.get('S3_BUCKET', 'mybucket')
 object_key = os.environ.get('S3_OBJECT_KEY', 'mapproxy.yaml')
 destination = os.environ.get('OUTPUT_DESTINATION', f'downloads/{object_key}')
