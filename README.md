@@ -24,6 +24,9 @@ Configurations:
 
 `S3_BUCKET` - default to 'mybucket'
 
+`AWS_HTTPS` - default to False
+
 `S3_OBJECT_KEY` - default to 'mapproxy.yaml'
+
 
 `OUTPUT_DESTINATION` - default to 'downloads/mapproxy.yaml'
