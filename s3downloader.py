@@ -48,6 +48,3 @@ try:
     log.debug(f'Successfully downloaded file to: {destination}')
 except Exception as e:
     log.debug(f'Error occurred while trying download file: {e}')
-
-
-
