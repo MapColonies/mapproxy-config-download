@@ -12,12 +12,12 @@ ch.setFormatter(formatter)
 # add the handlers to the logger
 log.addHandler(ch)
 
-endpoint_url = os.environ.get('S3_ENDPOINT_URL', 'http://10.45.130.11:9000')
-aws_access_key_id = os.environ.get('AWS_ACCESS_KEY_ID', 'AKIAIOSFODNN7EXAMPLE')
-aws_secret_access_key = os.environ.get('AWS_SECRET_ACCESS_KEY', 'wJalrXUtnFEMI/K7MDENG/bPxRfiCYEXAMPLEKEY')
-bucket = os.environ.get('S3_BUCKET', 'mybucket')
+endpoint_url = os.environ.get('S3_ENDPOINT_URL', 'http://localhost:9000')
+aws_access_key_id = os.environ.get('AWS_ACCESS_KEY_ID', '')
+aws_secret_access_key = os.environ.get('AWS_SECRET_ACCESS_KEY', '')
+bucket = os.environ.get('S3_BUCKET', '')
 object_key = os.environ.get('S3_OBJECT_KEY', 'mapproxy.yaml')
-destination = os.environ.get('OUTPUT_DESTINATION', f'gh/downloads/{object_key}')
+destination = os.environ.get('OUTPUT_DESTINATION', f'downloads/{object_key}')
 
 """
 This method download object into local file system.
