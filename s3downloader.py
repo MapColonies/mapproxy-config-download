@@ -5,7 +5,7 @@ import boto3
 
 
 log = generate_logger('s3-file-downloader', log_level='DEBUG',
-                      handlers=[{'type': 'stream', 'output': 'stderr'}, {'type': 'rotating_file', 'path': './logs.log'}])
+                      handlers=[{'type': 'stream', 'output': 'stderr'}, {'type': 'rotating_file', 'path': 'logs/logs.log'}])
 
 endpoint_url = os.environ.get('S3_ENDPOINT_URL', 'http://localhost:9000')
 aws_access_key_id = os.environ.get('AWS_ACCESS_KEY_ID', 'minioadmin')
