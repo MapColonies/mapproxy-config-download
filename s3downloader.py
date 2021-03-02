@@ -47,4 +47,4 @@ try:
     resource.Bucket(bucket).download_file(object_key, destination)
     log.debug(f'Successfully downloaded file to: {destination}')
 except Exception as e:
-    log.debug(f'Error occurred while trying download file: {e}')
+    log.error(f'Error occurred while trying download file: {e}')
