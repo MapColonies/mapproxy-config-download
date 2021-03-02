@@ -2,11 +2,6 @@ from MapColoniesJSONLogger.logger import generate_logger
 import os
 import boto3
 
-
-
-log = generate_logger('s3-file-downloader', log_level='DEBUG',
-                      handlers=[{'type': 'stream', 'output': 'stderr'}, {'type': 'rotating_file', 'path': 'logs/logs.log'}])
-
 endpoint_url = os.environ.get('S3_ENDPOINT_URL', 'http://localhost:9000')
 aws_access_key_id = os.environ.get('AWS_ACCESS_KEY_ID', 'minioadmin')
 aws_secret_access_key = os.environ.get('AWS_SECRET_ACCESS_KEY', 'minioadmin')
@@ -16,6 +11,8 @@ object_key = os.environ.get('S3_OBJECT_KEY', 'mapproxy.yaml')
 destination = os.environ.get('OUTPUT_DESTINATION', f'downloads/{object_key}')
 log_level = os.environ.get('LOG_LEVEL', 'DEBUG')
 
+log = generate_logger('s3-file-downloader', log_level=log_level,
+                      handlers=[{'type': 'stream', 'output': 'stderr'}, {'type': 'rotating_file', 'path': 'logs/logs.log'}])
 """
 This method convert string to bool - "True, "Yes", "1" are considered True
 """
