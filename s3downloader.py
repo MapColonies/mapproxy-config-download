@@ -14,6 +14,7 @@ bucket = os.environ.get('S3_BUCKET', 'mybucket')
 use_ssl = (os.environ.get('AWS_HTTPS', False))
 object_key = os.environ.get('S3_OBJECT_KEY', 'mapproxy.yaml')
 destination = os.environ.get('OUTPUT_DESTINATION', f'downloads/{object_key}')
+log_level = os.environ.get('LOG_LEVEL', 'DEBUG')
 
 """
 This method convert string to bool - "True, "Yes", "1" are considered True
@@ -35,7 +36,6 @@ This method download object into local file system.
 
 try:
     ssl_enabled = to_bool(use_ssl, False)
-    print(ssl_enabled)
     if os.path.exists(os.path.dirname(destination)) is False:
         os.makedirs(os.path.dirname(destination))
 
