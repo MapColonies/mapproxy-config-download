@@ -1,2 +1,2 @@
 #! /bin/bash
-python3 s3downloader.py
+python3 main.py
