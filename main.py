@@ -5,12 +5,12 @@ from src.logger.jsonLogger import Logger
 import os
 import boto3
     
-file_provider = os.environ.get('FILE_PROVIDER', 's3')
+file_provider = os.environ.get('FILE_PROVIDER', 'fs')
 source = os.environ.get('SOURCE_FILE', '/source/file/path')
 destination = os.environ.get('OUTPUT_DESTINATION', 'downloads')
 log = Logger.get_logger_instance()
 
-try:
+try:  
     log.info(f'Provider set to {file_provider}')
     if file_provider == Providers.S3.value:
         provider = S3Provider(destination)

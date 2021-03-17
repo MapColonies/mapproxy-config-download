@@ -39,3 +39,9 @@ if `FILE_RPOVIDER` set for 'fs':
 `OUTPUT_DESTINATION` - default to 'downloads' - change to the directory name you want to save the file to (create if not exists) 
 
 `SOURCE_FILE` - if `FILE_PROVIDER` is set to 'fs, set the path to the source file you want to copy 
+
+Logger:
+ 
+`LOG_LEVEL` = set log level, default to 'DEBUG', available values: 'CRITICAL', 'ERROR', 'WARNING', 'INFO', 'DEBUG', 'NOTSET' according to 'logging' python module
+
+`LOG_DIR` = set logs directory, default to 'logs'
