@@ -16,6 +16,12 @@ Run As Docker:
 
 Configurations:
 
+`FILE_PROVIDER` - **REQUIRED**, can be: 's3' or 'fs'
+
+if `FILE_PROVIDER` set for 's3':
+
+`OUTPUT_DESTINATION` - default to 'downloads' - change to the directory name you want to save the file to (create if not exists) 
+
 `S3_ENDPOINT_URL` - default to 'http//localhost:9000'
 
 `AWS_ACCESS_KEY_ID` - default to 'minioadmin'
@@ -28,4 +34,14 @@ Configurations:
 
 `S3_OBJECT_KEY` - default to 'mapproxy.yaml'
 
-`OUTPUT_DESTINATION` - default to 'downloads/mapproxy.yaml'
+if `FILE_RPOVIDER` set for 'fs':
+
+`OUTPUT_DESTINATION` - default to 'downloads' - change to the directory name you want to save the file to (create if not exists) 
+
+`SOURCE_FILE` - if `FILE_PROVIDER` is set to 'fs, set the path to the source file you want to copy 
+
+Logger:
+ 
+`LOG_LEVEL` = set log level, default to 'DEBUG', available values: 'CRITICAL', 'ERROR', 'WARNING', 'INFO', 'DEBUG', 'NOTSET' according to 'logging' python module
+
+`LOG_DIR` = set logs directory, default to 'logs'
